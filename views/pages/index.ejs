@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOKES APP</title>
+</head>
+<body>
+<a href="/fav"><button>fav</button></a>    
+<a href="/random-jokes"><button>Random</button></a>    
+
+
+    <% jokesArr.forEach((val,idx)=>{ %>
+        <div>
+            <p>Joke #<%= (idx+1)%> </p>
+            <p><%= val.type%></p>
+            <p><%= val.setup%></p>
+            <p><%= val.punchline%></p>
+
+            <form action="/add" method="post">
+                <input type="hidden" value="<%= val.type%>" name="type">
+                <input type="hidden" value="<%= val.setup%>" name="setup">
+                <input type="hidden" value="<%= val.punchline%>" name="punchline">
+                <button type="submit">ADD TO MY JOKES LIST</button>
+            </form>
+        </div>
+        
+    <% }); %>
+    
+</body>
+</html>

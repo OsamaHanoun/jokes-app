@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOKES APP</title>
+</head>
+
+<body>
+    <a href="/"><button>home</button></a>
+    <a href="/fav"><button>fav</button></a>
+    <a href="/random-jokes"><button>Random</button></a>
+
+
+    <div>
+        <p><%= jokesObj.type%></p>
+        <p><%= jokesObj.setup%></p>
+        <p><%= jokesObj.punchline%></p>
+
+        <form action="/joke/update/<%= jokesObj.id%>?_method=put" method="post">
+            <input type="text" value="<%= jokesObj.type%>" name="type">
+            <input type="text" value="<%= jokesObj.setup%>" name="setup">
+            <input type="text" value="<%= jokesObj.punchline%>" name="punchline">
+            <button type="submit">UPDATE</button>
+        </form>
+        <form action="/joke/delete/<%= jokesObj.id%>?_method=delete" method="post">
+            <button type="submit">DELETE</button>
+        </form>
+    </div>
+
+
+</body>
+
+</html>

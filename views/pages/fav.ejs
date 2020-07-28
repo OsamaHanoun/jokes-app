@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fav</title>
+</head>
+<body>
+<a href="/"><button>Home</button></a>    
+<a href="/random-jokes"><button>random</button></a>    
+
+<div>
+        <% jokesArr.forEach((val,idx)=>{ %>
+            <div>
+                <p><%= val.type%></p>
+                <p><%= val.setup%></p>
+                <p><%= val.punchline%></p>
+               <a href="/joke/<%= val.id%>"><button>VIEW DETAILS</button></a>
+            </div>
+        <% }); %>
+    </div>
+    
+</body>
+</html>
