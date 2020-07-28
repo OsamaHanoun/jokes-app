@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOKES APP</title>
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -12,24 +15,39 @@
     <a href="/fav"><button>fav</button></a>
     <a href="/random-jokes"><button>Random</button></a>
 
+    <div class="flex-container">
 
-    <div>
-        <p><%= jokesObj.type%></p>
-        <p><%= jokesObj.setup%></p>
-        <p><%= jokesObj.punchline%></p>
+        <div>
+            <p><%= jokesObj.type%></p>
+            <p><%= jokesObj.setup%></p>
+            <p><%= jokesObj.punchline%></p>
+            <button id="update-btn">UPDATE</button>
+            <form action="/joke/delete/<%= jokesObj.id%>?_method=delete" method="post">
+                <button type="submit">DELETE</button>
+            </form>
 
-        <form action="/joke/update/<%= jokesObj.id%>?_method=put" method="post">
-            <input type="text" value="<%= jokesObj.type%>" name="type">
-            <input type="text" value="<%= jokesObj.setup%>" name="setup">
-            <input type="text" value="<%= jokesObj.punchline%>" name="punchline">
-            <button type="submit">UPDATE</button>
-        </form>
-        <form action="/joke/delete/<%= jokesObj.id%>?_method=delete" method="post">
-            <button type="submit">DELETE</button>
-        </form>
+            <form id="update-form" action="/joke/update/<%= jokesObj.id%>?_method=put" method="post">
+                <label for="">
+                    <input type="text" value="<%= jokesObj.type%>" name="type">
+                </label>
+                <span>Type</span>
+                <label for="">
+                    <span>Setup</span>
+                    <input type="text" value="<%= jokesObj.setup%>" name="setup">
+                </label>
+                <label for="">
+                    <span>Punchline</span>
+                    <input type="text" value="<%= jokesObj.punchline%>" name="punchline">
+                </label>
+                <button type="submit">UPDATE</button>
+            </form>
+
+        </div>
     </div>
 
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/app.js"></script>
 </body>
 
 </html>

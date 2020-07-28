@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOKES APP</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <a href="/fav"><button>fav</button></a>    
 <a href="/random-jokes"><button>Random</button></a>    
 
-
+<div class="flex-container">
     <% jokesArr.forEach((val,idx)=>{ %>
         <div>
             <p>Joke #<%= (idx+1)%> </p>
@@ -27,5 +30,6 @@
         
     <% }); %>
     
+</div>
 </body>
 </html>
